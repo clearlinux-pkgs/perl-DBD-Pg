@@ -4,13 +4,14 @@
 #
 Name     : perl-DBD-Pg
 Version  : 3.7.4
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.7.4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.7.4.tar.gz
-Summary  : No detailed summary available
+Summary  : Postgres Driver for DBI
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
 Requires: perl-DBD-Pg-lib = %{version}-%{release}
+Requires: perl-DBD-Pg-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl-DBI
 BuildRequires : postgresql-dev
@@ -27,6 +28,7 @@ Summary: dev components for the perl-DBD-Pg package.
 Group: Development
 Requires: perl-DBD-Pg-lib = %{version}-%{release}
 Provides: perl-DBD-Pg-devel = %{version}-%{release}
+Requires: perl-DBD-Pg = %{version}-%{release}
 
 %description dev
 dev components for the perl-DBD-Pg package.
@@ -35,9 +37,18 @@ dev components for the perl-DBD-Pg package.
 %package lib
 Summary: lib components for the perl-DBD-Pg package.
 Group: Libraries
+Requires: perl-DBD-Pg-license = %{version}-%{release}
 
 %description lib
 lib components for the perl-DBD-Pg package.
+
+
+%package license
+Summary: license components for the perl-DBD-Pg package.
+Group: Default
+
+%description license
+license components for the perl-DBD-Pg package.
 
 
 %prep
@@ -65,6 +76,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-DBD-Pg
+cp LICENSES/artistic.txt %{buildroot}/usr/share/package-licenses/perl-DBD-Pg/LICENSES_artistic.txt
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -88,3 +101,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files lib
 %defattr(-,root,root,-)
 /usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/DBD/Pg/Pg.so
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-DBD-Pg/LICENSES_artistic.txt
