@@ -4,7 +4,7 @@
 #
 Name     : perl-DBD-Pg
 Version  : 3.14.2
-Release  : 26
+Release  : 27
 URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.14.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.14.2.tar.gz
 Summary  : No detailed summary available
@@ -78,6 +78,8 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-DBD-Pg
 cp %{_builddir}/DBD-Pg-3.14.2/LICENSES/artistic.txt %{buildroot}/usr/share/package-licenses/perl-DBD-Pg/21bc5f3c797d4d5b72285198ffeb1e4e1f0a2902
+cp %{_builddir}/DBD-Pg-3.14.2/LICENSES/artistic.txt %{buildroot}/usr/share/package-licenses/perl-DBD-Pg/21bc5f3c797d4d5b72285198ffeb1e4e1f0a2902
+cp %{_builddir}/DBD-Pg-3.14.2/LICENSES/gpl-2.0.txt %{buildroot}/usr/share/package-licenses/perl-DBD-Pg/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -98,10 +100,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-DBD-Pg/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
 /usr/share/package-licenses/perl-DBD-Pg/21bc5f3c797d4d5b72285198ffeb1e4e1f0a2902
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Bundle/DBD/Pg.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/DBD/Pg.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/DBD/Pg/Pg.so
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Bundle/DBD/Pg.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/DBD/Pg.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/DBD/Pg/Pg.so
