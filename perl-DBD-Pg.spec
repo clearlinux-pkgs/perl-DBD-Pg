@@ -4,7 +4,7 @@
 #
 Name     : perl-DBD-Pg
 Version  : 3.15.1
-Release  : 35
+Release  : 36
 URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.15.1.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.15.1.tar.gz
 Summary  : No detailed summary available
@@ -105,6 +105,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Bundle/DBD/Pg.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/DBD/Pg.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/DBD/Pg/Pg.so
+/usr/lib/perl5/*
