@@ -5,7 +5,7 @@
 #
 Name     : perl-DBD-Pg
 Version  : 3.16.3
-Release  : 39
+Release  : 40
 URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.16.3.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.16.3.tar.gz
 Summary  : No detailed summary available
