@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-DBD-Pg
-Version  : 3.16.3
-Release  : 42
-URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.16.3.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.16.3.tar.gz
+Version  : 3.17.0
+Release  : 43
+URL      : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.17.0.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/T/TU/TURNSTEP/DBD-Pg-3.17.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
@@ -24,7 +24,7 @@ BuildRequires : postgresql-dev
 DBD::Pg  --  the DBI PostgreSQL interface for Perl
 DESCRIPTION:
 ------------
-This is version 3.16.3 of DBD::Pg, the Perl interface to Postgres using DBI.
+This is version 3.17.0 of DBD::Pg, the Perl interface to Postgres using DBI.
 The web site for this interface, and the latest version, can be found at:
 
 %package dev
@@ -55,8 +55,11 @@ perl components for the perl-DBD-Pg package.
 
 
 %prep
-%setup -q -n DBD-Pg-3.16.3
-cd %{_builddir}/DBD-Pg-3.16.3
+%setup -q -n DBD-Pg-3.17.0
+cd %{_builddir}/DBD-Pg-3.17.0
+pushd ..
+cp -a DBD-Pg-3.17.0 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -93,6 +96,7 @@ find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
